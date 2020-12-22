@@ -10,12 +10,15 @@ cd /tmp/tssc-install
 echo "*******************************************"
 echo "Integrated Development Environment (IDE)"
 echo "Installing RodeReady Workspaces 2.0 "
+echo "*******************************************"
 git clone https://github.com/adnan-drina/crw-install-cli.git \
     && cd crw-install-cli && sh ./install.sh && cd ..
 echo "*******************************************"
-echo "RodeReady Workspaces Done! "
+echo "CodeReady Workspaces Done! "
 echo "*******************************************"
+echo " "
 
+echo " "
 echo "*******************************************"
 echo "Continuous Integration (CI) Tool"
 echo "OpenShift Pipelines (Tekton) "
@@ -24,7 +27,9 @@ git clone https://github.com/adnan-drina/tekton-cli-install.git \
 echo "*******************************************"
 echo "OpenShift Pipelines Done! "
 echo "*******************************************"
+echo " "
 
+echo " "
 echo "*******************************************"
 echo "Continuous Deployment (CD) Tool"
 echo "Argo CD"
@@ -33,7 +38,9 @@ git clone https://github.com/adnan-drina/argo-cli-install.git \
 echo "*******************************************"
 echo "Argo CD Done! "
 echo "*******************************************"
+echo " "
 
+echo " "
 echo "*******************************************"
 echo "Static Code Analysis Tool"
 echo "SonarQube"
@@ -42,7 +49,9 @@ git clone https://github.com/adnan-drina/sonarqube-install-cli.git \
 echo "*******************************************"
 echo "SonarQube Done! "
 echo "*******************************************"
+echo " "
 
+echo " "
 echo "*******************************************"
 echo "Artifact Repository"
 echo "Sonatype Nexus 3"
@@ -51,7 +60,9 @@ git clone https://github.com/adnan-drina/nexus3-community-install-cli.git \
 echo "*******************************************"
 echo "Sonatype Nexus 3   Done! "
 echo "*******************************************"
+echo " "
 
+echo " "
 echo "*******************************************"
 echo "Image Registry / Container Image Scanning Tool"
 echo "Red Hat Quay 3.3 / Clair v2"
@@ -60,23 +71,29 @@ git clone https://github.com/adnan-drina/quay-install-cli.git \
 echo "*******************************************"
 echo "Red Hat Quay 3.3 / Clair v2   Done! "
 echo "*******************************************"
+echo " "
 
+echo " "
 echo "*******************************************"
 echo "Secret Management Tool"
 echo "Sealed Secrets"
 git clone https://github.com/adnan-drina/sealed-secrets-cli-install.git \
-    && cd argo-cli-install && sh ./install.sh && cd ..
+    && cd sealed-secrets-cli-install && sh ./install.sh && cd ..
 echo "*******************************************"
 echo "Sealed Secrets Done! "
 echo "*******************************************"
+echo " "
 
+echo " "
 echo "*******************************************"
 echo "Cleaning up tmp directory"
 rm -f /tmp/tssc-install
 echo "Done! "
 echo "*******************************************"
+echo " "
+echo " "
 
-wait 30
+wait 60
 cat <<-EOF
 ############################################################################
 ############################################################################
@@ -89,7 +106,7 @@ cat <<-EOF
   Argo CD: https://$(oc get route argocd-server -o template --template='{{.spec.host}}' -n argocd)
   with OpenShift credentials
 
-  SonarQube: https://$(oc get route sonarqube -o template --template='{{.spec.host}}' -n sonatqube)
+  SonarQube: https://$(oc get route sonarqube -o template --template='{{.spec.host}}' -n sonarqube)
   with admin/admin credentials
 
   Sonatype Nexus: https://$(oc get route nexus3 -o template --template='{{.spec.host}}' -n nexus-repository)
