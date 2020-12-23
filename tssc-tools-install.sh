@@ -87,7 +87,7 @@ echo " "
 echo " "
 echo "*******************************************"
 echo "Cleaning up tmp directory"
-rm -f /tmp/tssc-install
+rm -rf /tmp/tssc-install
 echo "Done! "
 echo "*******************************************"
 echo " "
@@ -112,7 +112,7 @@ cat <<-EOF
   Sonatype Nexus: https://$(oc get route nexus3 -o template --template='{{.spec.host}}' -n nexus-repository)
   with admin/admin123 credentials
 
-  Red Hat Quay: https://$(oc get route quay -o template --template='{{.spec.host}}' -n quay)
+  Red Hat Quay: https://$(oc get route quayecosystem-quay -o template --template='{{.spec.host}}' -n quay)
   with quay/password credentials
 
 ############################################################################
