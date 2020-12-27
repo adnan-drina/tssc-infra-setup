@@ -36,9 +36,9 @@ This Repository is intended to help automate the rollout of infrastructure compo
 | Canary Testing Tool
 | Discussion
 
-fabric8 | kustomize | s2i | operators
-kam bootstrap
+fabric8 | kustomize | s2i | operators | kam bootstrap
 sealed-secrets
 istio | health, livens probe
 Docker notary
 cekit.io
+pelorus

@@ -93,7 +93,27 @@ echo "*******************************************"
 echo " "
 echo " "
 
-wait 60
+# wait
+sleep 30
+ARGO_POD="$(oc get pods -o name -n argocd | grep argocd-server-)"
+oc -n argocd wait --for=condition=Ready ${ARGO_POD}
+
+SONAR_POD="$(oc get pods -o name -n sonarqube | grep sonarqube)"
+oc -n sonarqube wait --for=condition=Ready ${SONAR_POD}
+
+NEXUS_POD="$(oc get pods -o name -n nexus-repository | grep nexus)"
+oc -n nexus-repository wait --for=condition=Ready ${NEXUS_POD}
+
+QUAY_POD1="$(oc get pods -o name -n quay | grep quayecosystem-quay-postgresql-)"
+oc -n quay wait --for=condition=Ready ${QUAY_POD1}
+echo "quayecosystem-quay-postgresql ready!"
+QUAY_POD2="$(oc get pods -o name -n quay | grep quayecosystem-quay-config-)"
+oc -n quay wait --for=condition=Ready ${QUAY_POD2}
+echo "quayecosystem-quay-config ready!"
+
+CRW_POD="$(oc get pods -o name -n codeready-workspaces | grep codeready-)"
+oc -n codeready-workspaces wait --for=condition=Ready ${CRW_POD}
+
 cat <<-EOF
 ############################################################################
 ############################################################################
@@ -109,7 +129,7 @@ cat <<-EOF
   SonarQube: https://$(oc get route sonarqube -o template --template='{{.spec.host}}' -n sonarqube)
   with admin/admin credentials
 
-  Sonatype Nexus: https://$(oc get route nexus3 -o template --template='{{.spec.host}}' -n nexus-repository)
+  Sonatype Nexus: http://$(oc get route nexus -o template --template='{{.spec.host}}' -n nexus-repository)
   with admin/admin123 credentials
 
   Red Hat Quay: https://$(oc get route quayecosystem-quay -o template --template='{{.spec.host}}' -n quay)
