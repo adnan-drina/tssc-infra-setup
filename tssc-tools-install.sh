@@ -120,7 +120,7 @@ cat <<-EOF
   TSSC Workflow infrastructure installed!
   Give it a few minutes to finish deployments and then access components via following routes:
 
-  RodeReady Workspaces: https://$(oc get route codeready -o template --template='{{.spec.host}}' -n codeready-workspaces)
+  CodeReady Workspaces: https://$(oc get route codeready -o template --template='{{.spec.host}}' -n codeready-workspaces)
   with OpenShift credentials
 
   Argo CD: https://$(oc get route argocd-server -o template --template='{{.spec.host}}' -n argocd)

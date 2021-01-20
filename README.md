@@ -10,7 +10,7 @@ This Repository is intended to help automate the rollout of infrastructure compo
 | :-------------                            | :-------------                            |
 | Container Platform                        | OpenShift 4.6                             |
 | Identity / Authentication / Authorization | OpenShift SSO                             |
-| Integrated Development Environment (IDE)  | RodeReady Workspaces 2.0                  |
+| Integrated Development Environment (IDE)  | CodeReady Workspaces 2.0                  |
 | Application Language Packaging Tool       | Maven 3.6                                 |
 | Application Language Unit Test Tool       | JUnit                                     |
 | Source Control Tool                       | GitHub                                    |
